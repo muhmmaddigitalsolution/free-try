@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Twice da Spice - 3D Menu by MDS</title>
+    <title>Twice The Spice - 3D Menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,12 +23,15 @@
         justify-content: center; align-items: center; z-index: 999;
         transition: opacity 0.5s ease;
       }
-      #splash-container h1 { font-size: 24px; color: #d9383a; font-weight: bold; margin: 0; font-family: 'Arial Black', sans-serif; }
+      #client-logo { width: 160px; height: auto; margin-bottom: 15px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1)); }
+      #splash-container h1 { font-size: 24px; color: #111111; font-weight: bold; margin: 0; font-family: 'Arial', sans-serif; letter-spacing: 1px; }
       #loading-text { font-size: 14px; color: #666666; margin-top: 10px; font-style: italic; }
       
       #agency-credit { 
-        position: absolute; bottom: 20px; font-size: 13px; 
-        color: #777777; font-weight: bold; letter-spacing: 0.5px;
+        position: absolute; bottom: 25px; font-size: 13px; 
+        color: #666666; font-weight: bold; letter-spacing: 0.5px;
+        background: #f5f5f5; padding: 6px 16px; border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       }
       #agency-credit span { color: #d9383a; }
 
@@ -42,16 +45,18 @@
   </head>
   <body>
     
-    <!-- Customized Client Splash Screen -->
     <div id="splash-container">
-      <h1>TWICE DA SPICE</h1>
+      <!-- Aapki uploaded image file ka exact name set kar diya hai path control ke liye -->
+      <img id="client-logo" src="twice da spice logo.jpg" alt="Twice The Spice Logo">
+      <h1>TWICE THE SPICE</h1>
       <div id="loading-text">Loading Interactive 3D Menu...</div>
       <div id="agency-credit">Created by <span>Muhmmad Digital Solution</span></div>
     </div>
 
+    <!-- File name ko exact bade 'F' wale Fries.glb par lock kar diya hai -->
     <model-viewer
       id="menu-model"
-      src="fries.glb"
+      src="Fries.glb"
       alt="3D Loaded Fries Model"
       ar
       ar-modes="quick-look webxr scene-viewer"
@@ -88,7 +93,7 @@
         console.error('model-viewer failed to load the GLB:', e.detail);
         removeSplash();
       });
-      setTimeout(removeSplash, 4000);
+      setTimeout(removeSplash, 4500);
     </script>
   </body>
 </html>
