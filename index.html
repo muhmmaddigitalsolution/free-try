@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Twice The Spice - 3D Menu</title>
+    <title>Twice da Spice - 3D Menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,17 +46,17 @@
   <body>
     
     <div id="splash-container">
-      <!-- Aapki uploaded image file ka exact name set kar diya hai path control ke liye -->
       <img id="client-logo" src="twice da spice logo.jpg" alt="Twice The Spice Logo">
-      <h1>TWICE THE SPICE</h1>
-      <div id="loading-text">Loading Interactive 3D Menu...</div>
+      <h1>TWICE da SPICE</h1>
+      <div id="loading-text">Processing 3D Models...</div>
       <div id="agency-credit">Created by <span>Muhmmad Digital Solution</span></div>
     </div>
 
-    <!-- File name ko exact bade 'F' wale Fries.glb par lock kar diya hai -->
+    <!-- loading="eager" configuration locks instant hardware rendering -->
     <model-viewer
       id="menu-model"
       src="Fries.glb"
+      loading="eager"
       alt="3D Loaded Fries Model"
       ar
       ar-modes="quick-look webxr scene-viewer"
@@ -93,7 +93,8 @@
         console.error('model-viewer failed to load the GLB:', e.detail);
         removeSplash();
       });
-      setTimeout(removeSplash, 4500);
+      // Optimized fail-safe buffer timing for heavy render engines
+      setTimeout(removeSplash, 6000);
     </script>
   </body>
 </html>
