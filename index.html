@@ -4,19 +4,15 @@
     <title>Twice The Spice - 3D Menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Official Google Model Viewer Scripts -->
-    <script type="module" src="https://unpkg.com"></script>
-    <script nomodule src="https://unpkg.com"></script>
-
+    <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer-legacy.js"></script>
     <style>
       body { margin: 0; padding: 0; font-family: sans-serif; background: #ffffff; overflow: hidden; }
-
       model-viewer {
         width: 100vw; height: 100vh; display: block;
         background: radial-gradient(circle at 50% 40%, #fdfdfd 0%, #e8e8e8 60%, #d6d6d6 100%);
       }
-
       #splash-container {
         position: absolute; width: 100vw; height: 100vh; top: 0; left: 0;
         background-color: #ffffff; display: flex; flex-direction: column;
@@ -26,7 +22,6 @@
       #client-logo { width: 160px; height: auto; margin-bottom: 15px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1)); }
       #splash-container h1 { font-size: 24px; color: #111111; font-weight: bold; margin: 0; font-family: 'Arial', sans-serif; letter-spacing: 1px; }
       #loading-text { font-size: 14px; color: #666666; margin-top: 10px; font-style: italic; }
-      
       #agency-credit { 
         position: absolute; bottom: 25px; font-size: 13px; 
         color: #666666; font-weight: bold; letter-spacing: 0.5px;
@@ -34,7 +29,6 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       }
       #agency-credit span { color: #d9383a; }
-
       #ar-button {
         position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
         background-color: #111111; color: #ffffff; border: none; border-radius: 30px;
@@ -44,15 +38,12 @@
     </style>
   </head>
   <body>
-    
     <div id="splash-container">
-      <img id="client-logo" src="twice da spice logo.jpg" alt="Twice The Spice Logo">
+      <img id="client-logo" src="twice%20da%20spice%20logo.jpg" alt="Twice The Spice Logo">
       <h1>TWICE THE SPICE</h1>
       <div id="loading-text">Processing 3D Models...</div>
       <div id="agency-credit">Created by <span>Muhmmad Digital Solution</span></div>
     </div>
-
-    <!-- auto-camera-target locks framing onto Tripo mesh bounds automatically -->
     <model-viewer
       id="menu-model"
       src="Fries.glb"
@@ -68,24 +59,20 @@
       environment-image="neutral"
       camera-target="auto auto auto"
       interaction-prompt="none">
-
       <button id="ar-button" slot="ar-button">
         📱 View on Your Table
       </button>
     </model-viewer>
-
     <script>
       const splash = document.getElementById('splash-container');
       const modelViewer = document.getElementById('menu-model');
       let removed = false;
-
       function removeSplash() {
         if (removed) return;
         removed = true;
         splash.style.opacity = 0;
         setTimeout(() => splash.remove(), 500);
-    }
-
+      }
       modelViewer.addEventListener('load', removeSplash);
       modelViewer.addEventListener('error', (e) => {
         console.error('model-viewer failed to load the GLB:', e.detail);
@@ -95,4 +82,3 @@
     </script>
   </body>
 </html>
-
