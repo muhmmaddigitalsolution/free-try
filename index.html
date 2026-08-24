@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Twice da Spice - 3D Menu</title>
+    <title>Twice The Spice - 3D Menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,12 +47,12 @@
     
     <div id="splash-container">
       <img id="client-logo" src="twice da spice logo.jpg" alt="Twice The Spice Logo">
-      <h1>TWICE da SPICE</h1>
+      <h1>TWICE THE SPICE</h1>
       <div id="loading-text">Processing 3D Models...</div>
       <div id="agency-credit">Created by <span>Muhmmad Digital Solution</span></div>
     </div>
 
-    <!-- loading="eager" configuration locks instant hardware rendering -->
+    <!-- auto-camera-target locks framing onto Tripo mesh bounds automatically -->
     <model-viewer
       id="menu-model"
       src="Fries.glb"
@@ -66,9 +66,7 @@
       auto-rotate
       shadow-intensity="1.5"
       environment-image="neutral"
-      camera-orbit="0deg 75deg 105%"
-      min-camera-orbit="auto auto 100%"
-      max-camera-orbit="auto auto 150%"
+      camera-target="auto auto auto"
       interaction-prompt="none">
 
       <button id="ar-button" slot="ar-button">
@@ -86,15 +84,15 @@
         removed = true;
         splash.style.opacity = 0;
         setTimeout(() => splash.remove(), 500);
-      }
+    }
 
       modelViewer.addEventListener('load', removeSplash);
       modelViewer.addEventListener('error', (e) => {
         console.error('model-viewer failed to load the GLB:', e.detail);
         removeSplash();
       });
-      // Optimized fail-safe buffer timing for heavy render engines
-      setTimeout(removeSplash, 6000);
+      setTimeout(removeSplash, 4000);
     </script>
   </body>
 </html>
+
